@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! gRPC KV 新版服务实现
+//!
+//! 该文件实现了 Placement Center 的新版 gRPC KV 服务，提供：
+//! 1. KV 存储接口（set、get、delete、exists）
+//! 2. OpenRaft 状态机集成
+//! 3. 主从节点自动路由
+//! 4. 错误处理与响应
+//!
+//! 实现原理：
+//! - 使用 tonic 框架实现 gRPC 服务
+//! - 结合 OpenRaft 状态机实现分布式一致性
+//! - 支持主从节点自动路由
+//! - 提供详细的错误处理机制
+
 use std::sync::{Arc, RwLock};
 
 use crate::{

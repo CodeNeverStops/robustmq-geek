@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Raft 集群元数据
+//!
+//! 该文件定义了 Raft 集群的元数据结构及其管理方法，包括：
+//! 1. 节点状态与角色管理
+//! 2. 集群节点信息维护
+//! 3. 主节点选举与切换
+//! 4. 集群配置变更
+//!
+//! 实现原理：
+//! - 采用 HashMap 管理集群节点
+//! - 支持主从角色切换
+//! - 提供节点增删与元数据查询接口
+//! - 集成日志输出便于调试
+
 use common_base::config::placement_center::placement_center_conf;
 use log::info;
 use protocol::common::ClusterType;

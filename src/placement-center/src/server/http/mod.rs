@@ -12,6 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! HTTP 服务模块
+//!
+//! 该文件为 Placement Center HTTP 服务相关功能的模块入口，包含：
+//! 1. index 路由
+//! 2. OpenRaft 路由
+//! 3. HTTP 服务器实现
+//! 4. 路由工具函数
+//!
+//! 实现原理：
+//! - 按功能模块划分子模块
+//! - 统一对外暴露 HTTP 相关接口
+//! - 支持 RESTful API 设计
+
 pub mod index;
 pub mod openraft;
 pub mod server;

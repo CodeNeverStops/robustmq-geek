@@ -12,22 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! gRPC 服务模块
-//!
-//! 该文件为 Placement Center gRPC 服务相关功能的模块入口，包含：
-//! 1. gRPC 服务器实现
-//! 2. KV 服务
-//! 3. OpenRaft 服务
-//! 4. Raft 服务
-//! 5. 其它扩展服务
+//! OpenRaft 路由实现
+//! 
+//! 这个文件实现了 OpenRaft 的路由层，负责：
+//! 1. 请求路由分发
+//! 2. 请求数据封装
+//! 3. 响应数据处理
+//! 4. 路由规则管理
 //!
 //! 实现原理：
-//! - 按功能模块划分子模块
-//! - 统一对外暴露 gRPC 相关接口
-//! - 支持分布式服务扩展
+//! - 定义了请求和响应的数据结构
+//! - 实现了请求的路由逻辑
+//! - 支持请求的序列化和反序列化
+//! - 提供了路由规则的配置接口
+//! - 集成了错误处理机制
 
-pub mod server;
-mod services_kv;
-mod services_openraft;
-mod services_raft;
-mod services_kv_new;
+// ... existing code ... 

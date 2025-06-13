@@ -12,5 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 服务模块总入口
+//!
+//! 该文件为 Placement Center 服务相关功能的总入口，包含：
+//! 1. HTTP 服务模块
+//! 2. gRPC 服务模块
+//!
+//! 实现原理：
+//! - 按功能模块划分子模块
+//! - 统一对外暴露服务相关接口
+
 pub mod http;
 pub mod grpc;

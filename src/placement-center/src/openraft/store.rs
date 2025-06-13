@@ -12,22 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//! gRPC 服务模块
-//!
-//! 该文件为 Placement Center gRPC 服务相关功能的模块入口，包含：
-//! 1. gRPC 服务器实现
-//! 2. KV 服务
-//! 3. OpenRaft 服务
-//! 4. Raft 服务
-//! 5. 其它扩展服务
+//! OpenRaft 存储实现
+//! 
+//! 这个文件实现了 OpenRaft 的存储层，负责：
+//! 1. 状态机存储
+//! 2. 日志存储
+//! 3. 快照管理
+//! 4. 数据持久化
 //!
 //! 实现原理：
-//! - 按功能模块划分子模块
-//! - 统一对外暴露 gRPC 相关接口
-//! - 支持分布式服务扩展
-
-pub mod server;
-mod services_kv;
-mod services_openraft;
-mod services_raft;
-mod services_kv_new;
+//! - 使用 RocksDB 作为底层存储
+//! - 实现了 OpenRaft 的存储接口
+//! - 支持数据的序列化和反序列化
+//! - 提供了事务支持
+//! - 实现了数据的一致性保证 

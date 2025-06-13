@@ -1,3 +1,29 @@
+// Copyright 2023 RobustMQ Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+//! HTTP OpenRaft 相关接口实现
+//!
+//! 该文件实现了 Placement Center 的 OpenRaft 相关 HTTP 接口，提供：
+//! 1. 集群成员管理（添加学习者、变更成员、初始化）
+//! 2. 集群监控指标查询
+//! 3. KV 数据写入与读取
+//!
+//! 实现原理：
+//! - 使用 axum 框架实现 HTTP 路由
+//! - 结合 OpenRaft 状态机实现分布式一致性
+//! - 支持异步处理与统一响应格式
+
 use std::collections::{BTreeMap, BTreeSet};
 
 use axum::extract::State;

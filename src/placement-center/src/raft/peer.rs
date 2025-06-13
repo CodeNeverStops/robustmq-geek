@@ -12,6 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Raft 节点间消息转发
+//!
+//! 该文件实现了 Raft 节点间的消息转发机制，包括：
+//! 1. PeerMessage 结构定义
+//! 2. 节点消息异步转发
+//! 3. gRPC 客户端调用
+//! 4. 错误与重试处理
+//!
+//! 实现原理：
+//! - 使用 tokio mpsc channel 实现异步消息队列
+//! - 通过 gRPC 客户端发送 Raft 消息
+//! - 支持日志输出与错误处理
+
 use log::{debug, error, info};
 use protocol::placement::{
     placement_center_service_client::PlacementCenterServiceClient, SendRaftMessageRequest,

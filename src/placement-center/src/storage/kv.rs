@@ -12,6 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! KV 存储实现
+//!
+//! 该文件实现了基于 RocksDB 的 KV 存储，提供：
+//! 1. 键值对的增删查改
+//! 2. 数据序列化与反序列化
+//! 3. 错误处理
+//!
+//! 实现原理：
+//! - 封装底层 engine 通用操作
+//! - 支持泛型数据存储
+//! - 提供统一的错误处理接口
+
 use common_base::errors::RobustMQError;
 
 use crate::storage::{

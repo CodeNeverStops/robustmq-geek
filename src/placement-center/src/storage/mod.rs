@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 存储模块
+//!
+//! 该文件为存储相关功能的模块入口，包含：
+//! 1. 存储引擎
+//! 2. KV 存储
+//! 3. RocksDB 封装
+//! 4. Raft 协议存储
+//! 5. 键生成规则
+//! 6. 数据包装结构
+//!
+//! 实现原理：
+//! - 按功能模块划分子模块
+//! - 统一对外暴露存储相关接口
+//! - 支持数据持久化与高可用
+
 use common_base::tools::now_second;
 use serde::{Deserialize, Serialize};
 

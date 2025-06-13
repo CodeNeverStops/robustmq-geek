@@ -12,6 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Raft 状态机消息与应用
+//!
+//! 该文件定义了 Raft 状态机的消息类型、数据结构及其应用逻辑，包括：
+//! 1. Raft 消息类型定义
+//! 2. 状态机数据结构
+//! 3. 消息发送与响应机制
+//! 4. 客户端请求与响应处理
+//!
+//! 实现原理：
+//! - 使用 tokio channel 进行异步消息传递
+//! - 支持多种消息类型（配置变更、普通消息、主节点转移、客户端提案）
 use bincode::serialize;
 use common_base::errors::RobustMQError;
 use raft::eraftpb::ConfChange;

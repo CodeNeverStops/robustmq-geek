@@ -12,6 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 存储引擎通用操作
+//!
+//! 该文件实现了对 RocksDB 存储引擎的通用操作，包括：
+//! 1. 数据保存、读取、删除、存在性判断
+//! 2. 按前缀批量查询
+//! 3. 支持集群级别的列族操作
+//!
+//! 实现原理：
+//! - 统一封装 RocksDB 操作接口
+//! - 支持泛型序列化与反序列化
+//! - 提供错误处理与数据包装
+
 use super::{
     rocksdb::{RocksDBEngine, DB_COLUMN_FAMILY_CLUSTER},
     StorageDataWrap,
