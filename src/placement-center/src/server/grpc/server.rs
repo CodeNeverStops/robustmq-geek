@@ -12,6 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! gRPC 服务器实现
+//! 
+//! 这个文件实现了 Placement Center 的 gRPC 服务器，提供以下服务：
+//! 1. KV 存储服务：提供基本的键值对操作
+//! 2. Raft 服务：处理 Raft 相关的操作
+//! 3. OpenRaft 服务：处理 OpenRaft 框架相关的操作
+//!
+//! 实现原理：
+//! - 使用 tonic 框架实现 gRPC 服务
+//! - 支持优雅关闭
+//! - 使用 tokio 的 select! 宏处理并发
+//! - 集成了 Raft 状态机和存储引擎
+
 use crate::{
     openraft::typeconfig::TypeConfig,
     raft::{apply::RaftMachineApply, metadata::RaftGroupMetadata},

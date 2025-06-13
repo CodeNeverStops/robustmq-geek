@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! HTTP 服务器实现
+//! 
+//! 这个文件实现了 Placement Center 的 HTTP 服务器，提供以下功能：
+//! 1. RESTful API 接口
+//! 2. 集群管理接口
+//! 3. 监控指标接口
+//! 4. KV 存储操作接口
+//!
+//! 实现原理：
+//! - 使用 axum 框架实现 HTTP 服务
+//! - 支持优雅关闭
+//! - 使用 tokio 的 select! 宏处理并发
+//! - 集成了 Raft 状态机和存储引擎
+//! - 提供了完整的路由系统
+
 use crate::openraft::typeconfig::TypeConfig;
 
 use super::openraft::{add_leadrner, change_membership, init, kv_get, metrics, set};

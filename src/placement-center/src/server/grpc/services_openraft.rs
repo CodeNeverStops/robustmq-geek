@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! OpenRaft gRPC 服务实现
+//! 
+//! 这个文件实现了 OpenRaft 的 gRPC 服务，提供以下功能：
+//! 1. 投票请求处理
+//! 2. 日志追加请求处理
+//! 3. 快照请求处理
+//! 4. Raft 消息转发
+//!
+//! 实现原理：
+//! - 使用 tonic 框架实现 gRPC 服务
+//! - 集成了 OpenRaft 的 Raft 节点
+//! - 实现了消息的序列化和反序列化
+//! - 提供了异步处理机制
+
 use bincode::{deserialize, serialize};
 use openraft::Raft;
 use protocol::openraft::{

@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Raft 存储实现
+//! 
+//! 这个文件实现了 Raft 协议的存储层，提供以下功能：
+//! 1. 日志存储和管理
+//! 2. 快照管理
+//! 3. 状态持久化
+//! 4. 配置状态管理
+//!
+//! 实现原理：
+//! - 使用 RocksDB 作为底层存储
+//! - 实现了 Raft 日志的追加和读取
+//! - 支持快照的创建和应用
+//! - 提供了状态机的持久化
+//! - 使用互斥锁保证并发安全
+
 use log::info;
 use raft::eraftpb::HardState;
 use raft::prelude::ConfState;

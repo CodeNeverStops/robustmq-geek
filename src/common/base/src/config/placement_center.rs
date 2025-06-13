@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Placement Center 配置管理
+//! 
+//! 这个文件实现了 Placement Center 的配置管理功能，包括：
+//! 1. 配置文件的读取和解析
+//! 2. 配置的全局访问
+//! 3. 配置的验证和初始化
+//! 4. 配置的运行时更新
+//!
+//! 实现原理：
+//! - 使用 toml 格式存储配置
+//! - 使用单例模式管理全局配置
+//! - 支持配置热重载
+//! - 提供了类型安全的配置访问
+//! - 实现了配置的序列化和反序列化
+
 /*
  * Copyright (c) 2023 RobustMQ Team
  *

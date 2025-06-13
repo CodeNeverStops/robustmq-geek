@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Placement Center 日志管理
+//! 
+//! 这个文件实现了 Placement Center 的日志管理功能，包括：
+//! 1. 日志系统的初始化
+//! 2. 日志配置的加载
+//! 3. 日志目录的管理
+//! 4. 日志格式的定制
+//!
+//! 实现原理：
+//! - 使用 log4rs 作为日志框架
+//! - 支持 YAML 格式的日志配置
+//! - 实现了日志文件的自动创建和轮转
+//! - 支持不同级别的日志输出
+//! - 提供了日志路径的动态配置
+
 use crate::{
     config::placement_center::placement_center_conf,
     tools::{create_fold, file_exists, read_file},

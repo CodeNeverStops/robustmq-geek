@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 存储键生成器
+//! 
+//! 这个文件定义了存储系统中使用的所有键的生成规则，包括：
+//! 1. 资源配置键
+//! 2. 幂等性键
+//! 3. 日志分片键
+//! 4. MQTT 相关键
+//!
+//! 实现原理：
+//! - 使用统一的键格式
+//! - 支持集群级别的键前缀
+//! - 实现了分层的键结构
+//! - 提供了键的生成和解析功能
+
 /** ===========Raft========== */
 pub fn key_name_by_first_index() -> String {
     return "/raft/first_index".to_string();

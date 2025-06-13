@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Placement Center 核心库
+//! 
+//! 这个文件是 Placement Center 的主要入口点，负责：
+//! 1. 初始化和管理 Raft 集群
+//! 2. 启动和管理 gRPC 服务器
+//! 3. 启动和管理 HTTP 服务器
+//! 4. 协调各个组件之间的通信
+//!
+//! 实现原理：
+//! - 使用 OpenRaft 实现分布式共识
+//! - 使用 RocksDB 作为存储引擎
+//! - 使用 tokio 作为异步运行时
+//! - 实现了优雅关闭机制
+
 use std::sync::{Arc, RwLock};
 
 use clients::poll::ClientPool;

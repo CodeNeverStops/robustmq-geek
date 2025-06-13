@@ -12,6 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 协议定义库
+//! 
+//! 这个文件定义了项目使用的所有协议，包括：
+//! 1. KV 存储协议
+//! 2. Placement Center 协议
+//! 3. 通用协议
+//! 4. OpenRaft 协议
+//!
+//! 实现原理：
+//! - 使用 Protocol Buffers 定义协议
+//! - 使用 tonic 生成 gRPC 代码
+//! - 支持序列化和反序列化
+//! - 提供了类型安全的 API
+
 pub mod kv;
 pub mod placement;
 pub mod common;

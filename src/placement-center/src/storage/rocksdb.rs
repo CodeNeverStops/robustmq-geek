@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! RocksDB 存储引擎实现
+//! 
+//! 这个文件实现了基于 RocksDB 的存储引擎，提供：
+//! 1. 键值对存储
+//! 2. 列族管理
+//! 3. 事务支持
+//! 4. 数据持久化
+//!
+//! 实现原理：
+//! - 使用 rocksdb 库作为底层存储
+//! - 支持多个列族（Column Family）
+//! - 实现了序列化和反序列化
+//! - 提供了线程安全的访问接口
+//! - 支持批量操作和事务
+
 use common_base::config::placement_center::PlacementCenterConfig;
 use common_base::errors::RobustMQError;
 use log::error;

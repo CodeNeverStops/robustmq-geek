@@ -12,6 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Raft 状态机实现
+//! 
+//! 这个文件实现了 Raft 共识算法的状态机，负责：
+//! 1. 处理 Raft 消息
+//! 2. 管理集群配置变更
+//! 3. 维护日志一致性
+//! 4. 处理客户端请求
+//!
+//! 实现原理：
+//! - 使用 RawNode 实现 Raft 核心逻辑
+//! - 使用 RocksDB 存储 Raft 日志和状态
+//! - 实现了心跳机制
+//! - 支持配置变更
+//! - 使用 tokio 的 channel 进行消息传递
+
 use super::apply::{RaftMessage, RaftResponseMesage};
 use super::route::DataRoute;
 use super::storage::RaftRocksDBStorage;

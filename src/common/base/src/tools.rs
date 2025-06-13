@@ -12,6 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! 通用工具函数
+//! 
+//! 这个文件提供了一系列通用工具函数，包括：
+//! 1. 文件操作：创建目录、检查文件存在性、读取文件
+//! 2. 时间处理：获取当前时间戳
+//! 3. 路径处理：路径拼接和检查
+//!
+//! 实现原理：
+//! - 使用标准库的文件系统操作
+//! - 提供了错误处理机制
+//! - 实现了跨平台的路径处理
+//! - 使用系统时间 API
+
 use std::{
     fs,
     path::{self, Path}, time::{SystemTime, UNIX_EPOCH},
